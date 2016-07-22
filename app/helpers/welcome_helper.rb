@@ -1,4 +1,4 @@
-module ApplicationHelper
+module WelcomeHelper
   def alert_class_for(flash_type)
     {
       :success => 'alert-success',

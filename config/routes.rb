@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+  root 'welcome#index'
+
   devise_for :users
-  root 'users#show' #
-  #root to: "home#index"
+  #root 'users#show' #
+  #resources :articles
 
-  resources :users do
+  resources :users
 
-  end
+  resources :companies
 
-  resources :companies do
-
-  end
-
-  resources :locations do
-
-  end
+  resources :locations
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
