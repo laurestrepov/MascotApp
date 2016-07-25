@@ -1,7 +1,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
+@import 'https://fonts.googleapis.com/css?family=Lato';
 
+
+/* navigation bar */
+.navbar-custom {
+  //background: #6796d7;
+  font-family: 'Lato', sans-serif;
+  background: -webkit-linear-gradient(top, #056f90 0%, rgb(34, 159, 213) 100%);
+  background: linear-gradient(to bottom, #056f90 0%, #056f90 100%);
+  border-radius: 4px;
+  color: white;
+}
+.navbar-custom .navbar-nav > li > a {
+ color: white; /*Change active text color here*/
+}
+
+/* header */
+header {
+  padding-top: 5px;
+}
+
+header a {
+  font-family: 'Lato', sans-serif;
+  color: black;
+}
 
 /* footer */
 
@@ -13,6 +37,7 @@ footer {
 }
 
 footer a {
+  font-family: 'Lato', sans-serif;
   color: #555;
 }
 
@@ -25,6 +50,7 @@ footer small {
 }
 
 footer ul {
+  font-family: 'Lato', sans-serif;
   float: right;
   list-style: none;
 }
