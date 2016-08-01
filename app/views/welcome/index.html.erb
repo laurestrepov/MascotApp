@@ -4,10 +4,20 @@
       <div class= "backgroud-img">
         <%= image_tag "home00.jpg", class: "img-responsive" %>
       </div>
-      <div class="center">
-        <%= link_to "Tengo mascota",
+      <div>
+        <% if user_signed_in? %>
+        <div class="center">
+          <%= link_to "Ver directorio",
+          locations_path,
+          class: 'btn btn-success btn-lg'%>
+        </div>
+        <%else%>
+          <div class="center">
+            <%= link_to "Tengo mascota",
             new_user_session_path,
             class: 'btn btn-success btn-lg'%>
+          </div>
+        <%end%>
       </div>
     </div>
   </div>

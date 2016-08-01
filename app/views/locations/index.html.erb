@@ -1,0 +1,32 @@
+<h1> Directorio para mascotas </h1>
+<div class="table-striped table-responsive">
+  <table class="table">
+    <thead>
+    <th>Lugar             </th>
+    <th>Descrición             </th>
+    <th>Dirección              </th>
+    <th>Mapa              </th>
+    <th>Calificación              </th>
+    </thead>
+    <tbody>
+      <% @locations.each do |location|%>
+        <tr>
+        <td><%= location.name %></td>
+        <td><%= location.description %></td>
+        <td><%= location.address %></td>
+          <% unless location.latitude.nil? && location.longitude.nil? %>
+            <td>
+              <!-- <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %> -->
+            </td>
+          <%end%>
+        <td><%= location.max_slots %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <%= link_to "Agregar ubicación",
+  new_location_path,
+  class: 'btn btn-default btn-sm'%>
+</div>
