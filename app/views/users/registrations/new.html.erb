@@ -15,8 +15,9 @@
 
   <div class="field">
     <%= f.label :Tipo_de_mascota %><br />
-    <%= f.text_field :pet_type, autofocus: true %>
+    <%= f.select :pet_type, ["Perro","Gato","Roedor","Ave","Pez","Otro"], class: 'form-control', required: true %>
   </div>
+
 
   <div class="field">
     <%= f.label :Email %><br />
