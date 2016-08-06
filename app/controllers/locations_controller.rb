@@ -2,6 +2,10 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
     flash[:error] = 'No hay lugares registrados aun' if @locations.empty?
+    @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+      marker.lat location.location_latitude
+      marker.lng location.location_longitude
+    end
   end
 
   def new
@@ -18,4 +22,9 @@ class LocationsController < ApplicationController
       render 'new'
     end
   end
+
+  def location_params
+    params.require(:location).permit(:id, :name, :latitude, :longitude, :address, :max_slots, :description)
+  end
+  private :location_params
 end
