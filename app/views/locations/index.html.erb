@@ -4,17 +4,31 @@
 
 <h1> Directorio para mascotas Medellín</h1>
 <!--<div class="container-responsive" style="padding-top: 20px">-->
-  <div style='width: 800px;'>
+  <div style='width: 100%;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
 
   <script type="text/javascript">
     handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-  });
+	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	  markers = handler.addMarkers(/*<%=raw @hash.to_json %>*/
+	  [
+	    {
+	      "lat": 40.689167,
+	      "lng": -74.044444,
+	      "picture": {
+	        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+	        "width":  32,
+	        "height": 32
+	      },
+	      "infowindow": "hello!"
+	    }
+	  ]
+	 );
+
+	 handler.bounds.extendWith(markers);
+	 handler.fitMapToBounds();
+       });
   </script>
 <!--</div>-->
 <div class="table-striped table-responsive">
@@ -34,7 +48,7 @@
         <td><%= location.address %></td>
           <% unless location.location_latitude.nil? && location.location_longitude.nil? %>
             <td>
-              <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
+              <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.location_latitude}%2C#{location.location_longitude}" %>
             </td>
           <%end%>
         <td><%= location.rating %> </td>
